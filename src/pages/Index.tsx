@@ -1,21 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
 import { Logo } from "@/components/Logo";
 import { useFadeIn } from "@/hooks/use-fade-in";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Video Speed Reader — 三分鐘拿到影片逐字稿" },
-      { name: "description", content: "上傳影片，三分鐘內拿到逐字稿。Upload your video, get a clean transcript in three minutes." },
-      { property: "og:title", content: "Video Speed Reader — 三分鐘拿到影片逐字稿" },
-      { property: "og:description", content: "Upload your video, get a clean transcript in three minutes." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Index,
-});
+import { useHead } from "@/lib/use-head";
 
 const features = [
   { icon: "🎯", title: "高準確度逐字稿", en: "High-accuracy transcripts", body: "Powered by OpenAI Whisper, supports Chinese and English." },
@@ -32,7 +19,12 @@ function FadeIn({ children, delay = 0, className = "" }: { children: ReactNode; 
   );
 }
 
-function Index() {
+export default function Index() {
+  useHead({
+    title: "Video Speed Reader — 三分鐘拿到影片逐字稿",
+    description: "上傳影片，三分鐘內拿到逐字稿。Upload your video, get a clean transcript in three minutes.",
+    twitterCard: "summary_large_image",
+  });
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <div className="pointer-events-none absolute inset-0 bg-glow" aria-hidden />
@@ -61,8 +53,7 @@ function Index() {
             </p>
             <div className="mt-10">
               <Link
-                to="/auth"
-                search={{ mode: "signup" }}
+                to="/auth?mode=signup"
                 className="inline-flex rounded-full bg-gradient-primary px-8 py-3 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
               >
                 Get started free

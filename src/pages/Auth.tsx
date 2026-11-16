@@ -1,30 +1,18 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Logo } from "@/components/Logo";
+import { useHead } from "@/lib/use-head";
 
 type Mode = "signin" | "signup";
 
-export const Route = createFileRoute("/auth")({
-  validateSearch: (s: Record<string, unknown>): { mode?: Mode | undefined } => ({
-    mode: s["mode"] === "signup" ? "signup" : undefined,
-  }),
-  head: () => ({
-    meta: [
-      { title: "Sign in — Video Speed Reader" },
-      { name: "description", content: "Sign in or create your Video Speed Reader account." },
-      { property: "og:title", content: "Sign in — Video Speed Reader" },
-      { property: "og:description", content: "Sign in or create your Video Speed Reader account." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-  }),
-  component: AuthPage,
-});
-
-function AuthPage() {
-  const { mode: m } = Route.useSearch();
-  const mode: Mode = m ?? "signin";
+export default function AuthPage() {
+  useHead({
+    title: "Sign in — Video Speed Reader",
+    description: "Sign in or create your Video Speed Reader account.",
+  });
+  const [searchParams] = useSearchParams();
+  const mode: Mode = searchParams.get("mode") === "signup" ? "signup" : "signin";
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,7 +41,7 @@ function AuthPage() {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
       }
-      navigate({ to: "/app", replace: true });
+      navigate("/app", { replace: true });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
@@ -111,8 +99,7 @@ function AuthPage() {
           <p className="mt-6 text-center text-sm text-muted-foreground">
             {isSignup ? "Already have an account? " : "No account yet? "}
             <Link
-              to="/auth"
-              search={{ mode: isSignup ? undefined : "signup" }}
+              to={isSignup ? "/auth" : "/auth?mode=signup"}
               className="font-medium text-primary-glow hover:underline"
             >
               {isSignup ? "Sign in" : "Sign up"}
