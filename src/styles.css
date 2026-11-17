@@ -71,47 +71,66 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-primary-glow: var(--primary-glow);
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-rounded, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
 }
 
 :root {
-  --radius: 0.75rem;
-  --background: oklch(0.13 0.012 290);
-  --foreground: oklch(0.97 0.005 290);
-  --card: oklch(0.17 0.016 290);
-  --card-foreground: oklch(0.97 0.005 290);
-  --popover: oklch(0.17 0.016 290);
-  --popover-foreground: oklch(0.97 0.005 290);
-  --primary: oklch(0.65 0.22 295);
-  --primary-glow: oklch(0.75 0.17 310);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.22 0.02 290);
-  --secondary-foreground: oklch(0.97 0.005 290);
-  --muted: oklch(0.22 0.02 290);
-  --muted-foreground: oklch(0.7 0.02 290);
-  --accent: oklch(0.25 0.05 295);
-  --accent-foreground: oklch(0.97 0.005 290);
-  --destructive: oklch(0.65 0.2 22);
+  /* "Duck reading in bed" theme: sunlit cream linen, slate-blue blanket stripes,
+     deep teal-ink text, and a duck-beak orange accent. */
+  color-scheme: light;
+  --radius: 0.9rem;
+  --background: oklch(0.955 0.022 75);
+  --foreground: oklch(0.33 0.04 220);
+  --card: oklch(0.985 0.012 80);
+  --card-foreground: oklch(0.33 0.04 220);
+  --popover: oklch(0.985 0.012 80);
+  --popover-foreground: oklch(0.33 0.04 220);
+  --primary: oklch(0.57 0.17 38);
+  --primary-glow: oklch(0.53 0.15 45);
+  --primary-foreground: oklch(0.99 0.005 80);
+  --secondary: oklch(0.9 0.03 235);
+  --secondary-foreground: oklch(0.33 0.04 220);
+  --muted: oklch(0.92 0.02 75);
+  --muted-foreground: oklch(0.47 0.035 225);
+  --accent: oklch(0.9 0.035 235);
+  --accent-foreground: oklch(0.33 0.04 220);
+  --destructive: oklch(0.52 0.19 25);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(1 0 0 / 9%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.65 0.22 295);
-  --chart-1: oklch(0.65 0.22 295);
-  --chart-2: oklch(0.7 0.15 200);
-  --chart-3: oklch(0.75 0.17 310);
-  --chart-4: oklch(0.8 0.15 85);
-  --chart-5: oklch(0.65 0.2 22);
-  --sidebar: oklch(0.17 0.016 290);
-  --sidebar-foreground: oklch(0.97 0.005 290);
-  --sidebar-primary: oklch(0.65 0.22 295);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.25 0.05 295);
-  --sidebar-accent-foreground: oklch(0.97 0.005 290);
-  --sidebar-border: oklch(1 0 0 / 9%);
-  --sidebar-ring: oklch(0.65 0.22 295);
+  --border: oklch(0.55 0.05 235 / 22%);
+  --input: oklch(0.55 0.05 235 / 32%);
+  --ring: oklch(0.57 0.17 38);
+  --chart-1: oklch(0.57 0.17 38);
+  --chart-2: oklch(0.62 0.06 240);
+  --chart-3: oklch(0.78 0.1 70);
+  --chart-4: oklch(0.45 0.05 210);
+  --chart-5: oklch(0.52 0.19 25);
+  --sidebar: oklch(0.985 0.012 80);
+  --sidebar-foreground: oklch(0.33 0.04 220);
+  --sidebar-primary: oklch(0.57 0.17 38);
+  --sidebar-primary-foreground: oklch(0.99 0.005 80);
+  --sidebar-accent: oklch(0.9 0.035 235);
+  --sidebar-accent-foreground: oklch(0.33 0.04 220);
+  --sidebar-border: oklch(0.55 0.05 235 / 22%);
+  --sidebar-ring: oklch(0.57 0.17 38);
+  /* Beak orange melting into late-afternoon amber. */
   --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
-  --gradient-glow: radial-gradient(ellipse 60% 50% at 50% 0%, oklch(0.65 0.22 295 / 28%), transparent 70%);
-  --shadow-glow: 0 10px 40px -10px oklch(0.65 0.22 295 / 55%);
+  /* Window sunlight pooling on a striped blanket. */
+  --gradient-glow:
+    radial-gradient(ellipse 55% 42% at 82% 6%, oklch(0.9 0.09 72 / 75%), transparent 70%),
+    radial-gradient(ellipse 38% 30% at 12% 30%, oklch(0.92 0.07 60 / 50%), transparent 72%),
+    repeating-linear-gradient(
+      -28deg,
+      transparent 0px,
+      oklch(0.6 0.085 242 / 17%) 22px,
+      oklch(0.6 0.085 242 / 17%) 54px,
+      transparent 78px,
+      transparent 128px
+    );
+  --shadow-glow: 0 12px 28px -14px oklch(0.57 0.17 38 / 60%);
+  --shadow-soft: 0 18px 40px -24px oklch(0.33 0.04 220 / 35%);
+  /* Fine canvas grain, like the painting's dry-brush texture. */
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @layer base {
@@ -121,13 +140,34 @@
 
   body {
     background-color: var(--color-background);
+    background-image: var(--texture-grain);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: oklch(0.85 0.09 70);
     color: var(--color-foreground);
   }
 }
 
 @utility bg-gradient-primary { background-image: var(--gradient-primary); }
-@utility bg-glow { background-image: var(--gradient-glow); }
+@utility bg-glow {
+  background-image: var(--gradient-glow);
+  /* Let the blanket stripes fade out toward the bottom of the page. */
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
 @utility shadow-glow { box-shadow: var(--shadow-glow); }
+@utility shadow-soft { box-shadow: var(--shadow-soft); }
 @utility text-gradient {
   background-image: var(--gradient-primary);
   -webkit-background-clip: text;

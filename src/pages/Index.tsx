@@ -41,7 +41,7 @@ export default function Index() {
       <main className="relative z-10">
         <section className="mx-auto max-w-4xl px-6 pb-24 pt-20 text-center sm:pt-32">
           <FadeIn>
-            <p className="mx-auto mb-6 inline-block rounded-full border border-border bg-card/60 px-4 py-1 text-xs font-medium text-muted-foreground">
+            <p className="mx-auto mb-6 inline-block rounded-full border border-border bg-card/80 px-4 py-1 text-xs font-medium text-muted-foreground">
               For creators · educators · engineers
             </p>
             <h1 className="text-5xl font-extrabold tracking-tight sm:text-7xl">
@@ -65,7 +65,7 @@ export default function Index() {
         <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-32 md:grid-cols-3">
           {features.map((f, i) => (
             <FadeIn key={f.en} delay={i * 120}>
-              <article className="h-full rounded-2xl border border-border bg-card/70 p-8 backdrop-blur transition-colors hover:border-primary/50">
+              <article className="h-full rounded-2xl border border-border bg-card/80 p-8 shadow-soft backdrop-blur transition-colors hover:border-primary/50">
                 <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-accent text-2xl">{f.icon}</div>
                 <h3 className="text-xl font-bold">{f.title}</h3>
                 <p className="text-sm font-medium text-primary-glow">{f.en}</p>

@@ -57,7 +57,7 @@ export default function AuthPage() {
         <Logo />
       </header>
       <main className="relative z-10 flex flex-1 items-center justify-center px-6 pb-20">
-        <div className="w-full max-w-md rounded-2xl border border-border bg-card/80 p-8 backdrop-blur">
+        <div className="w-full max-w-md rounded-2xl border border-border bg-card/90 p-8 shadow-soft backdrop-blur">
           <h1 className="text-2xl font-bold">{isSignup ? "Create account / 註冊" : "Sign in / 登入"}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {isSignup ? "Start turning videos into transcripts." : "Welcome back."}

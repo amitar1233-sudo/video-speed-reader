@@ -25,7 +25,7 @@ export default function Dashboard() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <div className="pointer-events-none absolute inset-0 bg-glow" aria-hidden />
-      <header className="relative z-10 border-b border-border">
+      <header className="relative z-10 border-b border-border bg-card/40 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Logo />
           <button
@@ -40,7 +40,7 @@ export default function Dashboard() {
         <h1 className="break-words text-4xl font-bold sm:text-5xl">
           Hi <span className="text-gradient">{user.email}</span>
         </h1>
-        <div className="mt-10 rounded-2xl border border-dashed border-primary/40 bg-card/60 p-10">
+        <div className="mt-10 rounded-2xl border border-dashed border-primary/40 bg-card/80 p-10 shadow-soft">
           <p className="text-lg text-muted-foreground">
             Your dashboard is coming soon. Upload functionality will be added in the next milestone.
           </p>
